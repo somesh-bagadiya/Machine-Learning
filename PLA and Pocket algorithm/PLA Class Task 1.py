@@ -3,65 +3,53 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 data = pd.read_csv("./synthetic_dataset.csv")
-color = np.where(data["y"]==1, "red", "blue")
-data.insert(0,"x0",[1]*data.shape[0])
-plt.scatter(list(data['x1']), list(data['x2']), c=color)
+data.insert(0,"x0",[1]*data.shape[0]) # added artificial co-ordinate to the dataset
+w=[0,1,1] # initial hypothesis
 
-w = [0,1,1]
-misclassified_point = dict()
-datay = list(data["y"])
-
-def sign(x):
-  if x >= 0:
-    return 1
+def calculate_dot_sign(w,x):
+  dot = w[0]*x[0] + w[1]*x[1] + w[2]*x[2]
+  if dot >= 0:
+    sign = 1
   else:
-    return -1
+    sign = -1
+  return sign
 
-def get_sign(x,w):
-  dot_product = x[0]*w[0] + x[1]*w[1] + x[2]*w[2]
-  return sign(dot_product)
+def check_miss_points(w):
+  for i in range(data.shape[0]):
+    x = []
+    x.insert(0,data["x0"][i])
+    x.insert(1,data["x1"][i])
+    x.insert(2,data["x2"][i])
+    hypo_y = calculate_dot_sign(w,x)
+    if hypo_y != data["y"][i]:
+      print(i,hypo_y)
+      return i
+  return -10
 
-def classify(w):
-    global misclassified_point, datay
-    classification = []
-    misclassified_point = dict()
-    for i in range(data.shape[0]):
-        classification.append(get_sign(data.iloc[i], w))
-        if(datay[i] != classification[i]):
-            misclassified_point[i] = classification[i]
-            break
-    print(misclassified_point)
-    
-
-def perceptron(p):
-    global w
-    x0 = data.iloc[p][0]
-    x1 = data.iloc[p][1]
-    x2 = data.iloc[p][2]
-    #print(list(misclassified_point.keys())[0])
-    print(datay[p])
-    y = datay[p]
-
-    w[0] = w[0] + x0*y
-    w[1] = w[1] + x1*y
-    w[2] = w[2] + x2*y
-
-    classify(w)
+def perceptron_algo(w):
+  p_miss = check_miss_points(w)
+  while p_miss != -10:
+    w[0] = w[0] + data["y"][p_miss]*data["x0"][p_miss]
+    w[1] = w[1] + data["y"][p_miss]*data["x1"][p_miss]
+    w[2] = w[2] + data["y"][p_miss]*data["x2"][p_miss]
+    p_miss = check_miss_points(w)
+    plot_graph(w)
     print(w)
 
-def plot_it(w):
-  # print ("For iteration", i, " and weight", w, " our classification result is: ")
-  col = data['y'].map({-1:'b', 1:'r'})
-  data.plot.scatter(x='x1', y='x2', c=col)
-  axes = plt.gca()
-  axes.set_ylim(-10,10)
+def plot_graph(w):
+    x_vals = list(range(-11,11,1))
+    y_vals = []
+    for i in x_vals:
+      y = -w[0]/w[2] - (w[1]/w[2] * i)
+      y_vals.append(y)
 
-  x_vals = np.array(axes.get_xlim())
-  print(x_vals)
-  y_vals = -w[0]/w[2] - w[1]/w[2] * x_vals
-  plt.plot(x_vals, y_vals, '--')
+    # plt.axvline(x=0, c="black", label="x=0")
+    # plt.axhline(y=0, c="black", label="y=0")
+    plt.plot(x_vals, y_vals, '--')
 
-classify(w)
-while(len(misclassified_point)):
-    plot_it(w)
-    perceptron(list(misclassified_point.keys())[0])
+    color = np.where(data["y"]==1, "red", "blue")
+    plt.scatter(list(data['x1']), list(data['x2']), c=color)
+
+    plt.show()
+
+perceptron_algo(w)
