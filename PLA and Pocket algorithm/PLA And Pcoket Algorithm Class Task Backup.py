@@ -7,6 +7,7 @@ data.insert(0,"x0",[1]*data.shape[0]) # added artificial co-ordinate to the data
 w=[0,1,0] # initial hypothesis
 
 def calculate_dot_sign(w,x):
+    # print(w,x)
     dot = w[0]*x[0] + w[1]*x[1] + w[2]*x[2]
     if dot >= 0:
         sign = 1
@@ -24,6 +25,7 @@ def check_miss_points_pocket(w):
         hypo_y = calculate_dot_sign(w,x)
         if hypo_y != data["y"][i]:            
             miss_points.append(i)
+            # print(miss_points)
     return miss_points
 
 def check_miss_points(w):
@@ -34,6 +36,7 @@ def check_miss_points(w):
         x.insert(2,data["x2"][i])
         hypo_y = calculate_dot_sign(w,x)
         if hypo_y != data["y"][i]:
+            # print(i,hypo_y)
             return i
     return -10
 
@@ -70,6 +73,10 @@ def plot_graph(w):
     for i in x_vals:
         y = -w[0]/w[2] - (w[1]/w[2] * i)
         y_vals.append(y)
+        
+        
+        
+
     # plt.axvline(x=0, c="black", label="x=0")
     # plt.axhline(y=0, c="black", label="y=0")
     plt.plot(x_vals, y_vals, '--')
