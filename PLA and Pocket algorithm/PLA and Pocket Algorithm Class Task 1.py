@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-data = pd.read_csv("./synthetic_dataset2.csv")
+data = pd.read_csv("./synthetic_dataset.csv")
 data.insert(0,"x0",[1]*data.shape[0]) # added artificial co-ordinate to the dataset
 w=[0,0,0] # initial hypothesis
 
@@ -24,7 +24,6 @@ def count_missing_points(w):
         hypo_y = calculate_dot_sign(w,x)
         if hypo_y != data["y"][i]:            
             miss_points.append(i)
-    # print(miss_points)
     return len(miss_points)
 
 def check_missing_points(w):
@@ -37,7 +36,6 @@ def check_missing_points(w):
         hypo_y = calculate_dot_sign(w,x)
         if hypo_y != data["y"][i]:            
             miss_points.append(i)
-    # print(miss_points)
     return miss_points
 
 def check_miss_points(w):
@@ -89,8 +87,9 @@ def pocket_algo(w):
             w_best_points = w_points
             break
     
+    plot_graph(w_best)  
     print("Final Weights (Pocket):",w_best, "Number of Missclassified points:", w_best_points)
-    plot_graph(w_best)
+    
     
 def plot_graph(w):
     x_vals = list(range(-11,11,1))
@@ -106,7 +105,6 @@ def plot_graph(w):
     plt.scatter(list(data['x1']), list(data['x2']), c=color)
     plt.show()
 
-# perceptron_algo(w)
-
+perceptron_algo(w)
 w = [0,0,0]
 pocket_algo(w)
