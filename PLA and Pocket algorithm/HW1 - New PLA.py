@@ -18,7 +18,6 @@ def updateW(w, x, y):
     x = np.array(x)
     s = np.dot(w,x)
     w = w + learning_rate*(y-s)*x
-    # print(w)
     return w
 
 def check_miss_points(w):
@@ -63,10 +62,7 @@ def perceptron_algo(w):
         x = check_miss_points(w)
         y = x[3]
         x = x[:3]
-        # print("before", w)
         w = updateW(w,x,y)
-        # print("after", w)
-        # print("iter", n)
         n+=1
     plot_graph(w)
     print("Final Weights (Perceptron):",w)
@@ -77,8 +73,6 @@ def is_misclassified(w, point):
     x = point[0:3]
     y = point[3]
     classified_value = np.dot(w, x)
-    
-    
     if classified_value > 0:
         classified_value = 1
     else:
@@ -88,12 +82,10 @@ def is_misclassified(w, point):
 
 def count_misclass(final_weights):
     count_of_misclassified = 0
-    
     for i in range(len(testing_data)):
         misclassified = is_misclassified(final_weights, testing_data.iloc[i].values)
         if misclassified==True:
-            count_of_misclassified+=1
-    
+            count_of_misclassified+=1  
     print("percent of accuracy:",(1 - count_of_misclassified/len(testing_data))*100, "%")
 
 learning_rate = 100
