@@ -47,7 +47,7 @@ def perceptron_algo(w):
         w[1] = w[1] + data["y"][p_miss]*data["x1"][p_miss]
         w[2] = w[2] + data["y"][p_miss]*data["x2"][p_miss]
         p_miss = check_miss_points(w)
-    plot_graph(w)
+    # plot_graph(w)
     print("Final Weights (Perceptron):",w)
 
 def pocket_algo(w):
@@ -61,7 +61,7 @@ def pocket_algo(w):
         p_miss = check_miss_points_pocket(w)
         n = len(p_miss)
         w_dict[n] = tuple(w)
-    plot_graph(w)
+    # plot_graph(w)
     
     w_keys = list(w_dict.keys())
     w_keys.sort()
@@ -73,18 +73,18 @@ def plot_graph(w):
     for i in x_vals:
         y = -w[0]/w[2] - (w[1]/w[2] * i)
         y_vals.append(y)
-        
-        
-        
 
-    # plt.axvline(x=0, c="black", label="x=0")
-    # plt.axhline(y=0, c="black", label="y=0")
+    plt.axvline(x=0, c="black", label="x=0")
+    plt.axhline(y=0, c="black", label="y=0")
     plt.plot(x_vals, y_vals, '--')
 
     color = np.where(data["y"]==1, "red", "blue")
     plt.scatter(list(data['x1']), list(data['x2']), c=color)
     plt.show()
 
-pocket_algo(w)
-w = [0,0,0]
-perceptron_algo(w)
+# w = [-1,-1,1]
+# plot_graph(w)
+
+# pocket_algo(w)
+# w = [0,0,0]
+# perceptron_algo(w)
