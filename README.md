@@ -29,7 +29,7 @@ Every folder has a specification PDF. The PDF contains on instructions what has 
 
 This folder includes the Perceptron learning algorithm and the Pocket algorithm, which are basic machine learning algorithms.
 
-![Model Predictions](Perceptron%20Learning%20Algorithm%20-%20PLA%20and%20Pocket%20Algorithm/ModelPrediction.png)
+![Model Predictions](Perceptron%20Learning%20Algorithm%20-%20PLA%20and%20Pocket%20Algorithm/PerceptronAlgo.png)
 
 *Caption: Basic Perceptron Learning Algorithm*
 
