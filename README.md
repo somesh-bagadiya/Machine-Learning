@@ -4,6 +4,7 @@
 2. [Prerequisites](#prerequisites)
 3. [Setup Instructions](#setup-instructions)
 4. [Usage](#usage)
+5. [Directory Description](#directory-description)
 
 ## Introduction
 
@@ -20,3 +21,8 @@ Ensure that Python is installed on your system, and also make sure to install th
 ## Usage
 
 Every folder has a specification PDF. The PDF contains on instructions what has been implemented for the assignment.
+
+
+## Directory Description
+
+### Perceptron Learning Algorithm - PLA and Pocket Algorithm
