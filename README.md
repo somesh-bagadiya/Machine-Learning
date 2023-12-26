@@ -36,3 +36,9 @@ This folder includes the Perceptron learning algorithm and the Pocket algorithm,
 ![Pocket Algorithm](Perceptron%20Learning%20Algorithm%20-%20PLA%20and%20Pocket%20Algorithm/PocketAlgo.png)
 
 *Caption: Basic Pocket Algorithm*
+
+![Pocket Algorithm](Perceptron%20Learning%20Algorithm%20-%20PLA%20and%20Pocket%20Algorithm/Learn.jpg)
+
+*Caption: PLA with Learning rate*
+
+
