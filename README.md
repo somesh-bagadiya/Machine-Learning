@@ -20,8 +20,7 @@ Ensure that Python is installed on your system, and also make sure to install th
 
 ## Usage
 
-Every folder has a specification PDF. The PDF contains on instructions what has been implemented for the assignment.
-
+Navigate to each algorithm's folder and refer to the accompanying specification PDF for detailed instructions on running the code and understanding the implementation.
 
 ## Directory Description
 
@@ -35,23 +34,23 @@ This folder includes the Perceptron learning algorithm and the Pocket algorithm,
 
 ![Pocket Algorithm](Perceptron%20Learning%20Algorithm%20-%20PLA%20and%20Pocket%20Algorithm/PocketAlgo.png)
 
-*Caption: Basic Pocket Algorithm*
+*Caption: Basic Pocket Algorithm with Learning Rate*
 
-![Pocket Algorithm](Perceptron%20Learning%20Algorithm%20-%20PLA%20and%20Pocket%20Algorithm/Learn.jpg)
+![Learn Image](Perceptron%20Learning%20Algorithm%20-%20PLA%20and%20Pocket%20Algorithm/Learn.jpg)
 
-*Caption: PLA with Learning rate*
+*Caption: PLA with Learning Rate*
 
 ### Comparing PLA, Pocket and Linear Regression
 
-In this folder, you'll discover code that helps us compare PLA, Pocket, and Linear Regression algorithms. We're also trying out 3rd order transformations to see how they affect the results.
+Explore this folder to compare PLA, Pocket, and Linear Regression algorithms. We also experiment with 3rd order transformations to analyze their impact on results.
 
 ![Pocket Vs Linear Regression - 2d](Comparing%20PLA,%20Pocket%20and%20Linear%20Regression/2d.jpg)
 
-*Caption: Pocket Vs Linear Regression - 2d*
+*Caption: Comparison in 2D*
 
 ![Pocket Vs Linear Regression - 3d](Comparing%20PLA,%20Pocket%20and%20Linear%20Regression/3d.jpg)
 
-*Caption: Pocket Vs Linear Regression - 3d*
+*Caption: Comparison in 3D*
 
 ### Neural Network
 
@@ -59,4 +58,4 @@ This directory contains the implementation of neural networks.
 
 ### Support Vector Machine
 
-This directory contains the implementation of Support Vector Machine.
+Find the implementation of Support Vector Machine in this directory.
