@@ -41,4 +41,16 @@ This folder includes the Perceptron learning algorithm and the Pocket algorithm,
 
 *Caption: PLA with Learning rate*
 
+### Comparing PLA, Pocket and Linear Regression
+
+In this folder, you'll discover code that helps us compare PLA, Pocket, and Linear Regression algorithms. We're also trying out 3rd order transformations to see how they affect the results.
+
+![Pocket Vs Linear Regression - 2d](Comparing%20PLA,%20Pocket%20and%20Linear%20Regression/2d.jpg)
+
+*Caption: Pocket Vs Linear Regression - 2d*
+
+![Pocket Vs Linear Regression - 3d](Comparing%20PLA,%20Pocket%20and%20Linear%20Regression/3d.jpg)
+
+*Caption: Pocket Vs Linear Regression - 3d*
+
 
