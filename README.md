@@ -53,4 +53,10 @@ In this folder, you'll discover code that helps us compare PLA, Pocket, and Line
 
 *Caption: Pocket Vs Linear Regression - 3d*
 
+### Neural Network
 
+This directory contains the implementation of neural networks.
+
+### Support Vector Machine
+
+This directory contains the implementation of Support Vector Machine.
